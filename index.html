@@ -3,30 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="container">
-      <div class="login-section">
-        <h1>ATM Login</h1>
+      <div id="login-section" class="login-section">
+        <h1 class="title">ATM Login</h1>
+        <div class="" id="login-message"></div>
+
         <div class="login-form">
-          <input
-            type="text"
-            id="user-id"
-            placeholder="Enter ID"
-            pattern="[0-9]+"
-            title="Please enter numbers only"
-          />
-          <input type="password" id="user-pin" placeholder="Enter PIN" />
+          <div class="form-group">
+            <label for="user-id">User ID</label>
+            <input
+              type="text"
+              id="user-id"
+              placeholder="Enter ID"
+              pattern="[0-9]+"
+              title="Please enter numbers only"
+            />
+          </div>
+          <div class="form-group">
+            <label for="user-pin">User PIN</label>
+            <input type="password" id="user-pin" placeholder="Enter PIN" />
+          </div>
           <button onclick="login()">Login</button>
         </div>
       </div>
-      <div class="" id="login-message"></div>
-      <div class="atm-section" style="display: none">
-        <h1>Welcome!</h1>
-        <div class="balance-section"></div>
-        <div class="" id="message"></div>
+      <div class="atm-section" id="atm-section" style="display: none">
+        <h1 id="welcome-message">Welcome!</h1>
+        <div class="balance-section">
+          <h1 class="balance-title">Your Balance</h1>
+          <h2 id="balance-number"></h2>
+        </div>
+        <div class="" id="transaction-section">
+          <div class="" id="message"></div>
+          <h3>Transaction</h3>
+
+          <input
+            type="number"
+            id="amount"
+            placeholder="Enter amount"
+            min="0"
+            step="0.01"
+          />
+          <div class="button">
+            <button onclick="deposit()">Deposit</button>
+            <button onclick="withdraw()">Withdraw</button>
+          </div>
+          <button onclick="logout()" class="logout-button">Logout</button>
+        </div>
       </div>
     </div>
     <script src="main.js"></script>
